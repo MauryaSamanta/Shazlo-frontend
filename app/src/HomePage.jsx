@@ -51,8 +51,9 @@ const useStyles = makeStyles((theme) => ({
 function HomePage() {
   const classes = useStyles();
 
+  // Add top padding to offset the fixed navbar (default MUI AppBar height is 64px, 56px on mobile)
   return (
-    <div>
+    <div style={{ paddingTop: 64 }}>
       <Navbar />
 
       {/* Hero Section */}
@@ -80,92 +81,6 @@ function HomePage() {
           </Button>
         </Container>
       </div>
-
-      {/* App Features */}
-      <Container sx={{ py: 8 }}>
-        <Typography
-          variant="h3"
-          align="center"
-          gutterBottom
-          sx={{ fontWeight: "bold", mb: 6 }}
-        >
-          How <span className={classes.pinkText}>Shazlo</span> Works
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card className={classes.featureCard}>
-              <CardMedia
-                className={classes.featureMedia}
-                image="/placeholder-swipe.jpg"
-                title="Swipe feature"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Swipe to Discover
-                </Typography>
-                <Typography>
-                  Like Tinder but for fashion! Swipe right to like, left to
-                  skip. It's that simple.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card className={classes.featureCard}>
-              <CardMedia
-                className={classes.featureMedia}
-                image="/placeholder-ai.jpg"
-                title="AI feature"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Smart AI Curation
-                </Typography>
-                <Typography>
-                  Our AI learns your style preferences in real-time to show you
-                  perfect matches.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card className={classes.featureCard}>
-              <CardMedia
-                className={classes.featureMedia}
-                image="/placeholder-moodboard.jpg"
-                title="Moodboard feature"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Style Moodboards
-                </Typography>
-                <Typography>
-                  Create beautiful moodboards of your favorite looks and share
-                  with friends.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card className={classes.featureCard}>
-              <CardMedia
-                className={classes.featureMedia}
-                image="/placeholder-analytics.jpg"
-                title="Analytics feature"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Trend Analytics
-                </Typography>
-                <Typography>
-                  For sellers - see what's trending and what your customers
-                  love.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
 
       {/* Categories Section */}
       <Box className={classes.yellowBg} sx={{ py: 8 }}>
@@ -207,6 +122,92 @@ function HomePage() {
               <Button variant="outlined" size="large" startIcon={<Favorite />}>
                 Tops
               </Button>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+      {/* Features Section */}
+      <Box sx={{ py: 8, backgroundColor: "#FFFDE7" }}>
+        <Container>
+          <Typography
+            variant="h3"
+            align="center"
+            gutterBottom
+            sx={{ fontWeight: "bold", mb: 6 }}
+          >
+            Why <span className={classes.pinkText}>Shazlo</span> Stands Out
+          </Typography>
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} sm={6} md={4}>
+              <Card className={classes.featureCard}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=600"
+                  alt="Swipe Interaction"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Swipe-Based Interaction
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    Discover fashion like never before—just swipe right to love
+                    it or left to skip.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+              <Card className={classes.featureCard}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&w=600"
+                  alt="AI Curation"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Smart AI Curation
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    Our AI learns your preferences instantly and curates fashion
+                    just for you.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+              <Card className={classes.featureCard}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=600"
+                  alt="Wishlist"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Wishlist & Moodboards
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    Save your favorite styles and create your vibe with custom
+                    moodboards.
+                  </Typography>
+                </CardContent>
+              </Card>
             </Grid>
           </Grid>
         </Container>

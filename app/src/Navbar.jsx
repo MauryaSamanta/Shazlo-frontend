@@ -16,12 +16,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     color: "black",
     boxShadow: "none",
+     
   },
   downloadButton: {
     background: "linear-gradient(45deg, #FFD700 30%, #FFC107 90%)",
     color: "black",
     fontWeight: "bold",
     padding: "10px 24px",
+    width:"100"
   },
 }));
 
@@ -29,7 +31,7 @@ function Navbar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.appBar}>
+    <AppBar position="fixed" className={classes.appBar}>
       <Container>
         <Toolbar>
           <Typography
