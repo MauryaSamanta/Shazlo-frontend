@@ -1,66 +1,131 @@
 import React from 'react';
-import { 
-  Container, 
-  Grid, 
-  Typography, 
-  Link, 
+import {
+  Container,
+  Grid,
+  Typography,
+  Link,
   Divider,
   IconButton,
-  Box
+  Box,
+  
 } from '@mui/material';
-import { 
-  Instagram, 
-  Facebook, 
-  Twitter
+import {
+  Instagram,
+  Facebook,
+  Twitter,
 } from '@mui/icons-material';
-
+import mainlogo from './assets/3.png';
+import Button from './components/Button';
 function Footer() {
   return (
-    <footer style={{ backgroundColor: '#000', color: '#fff', padding: '40px 0' }}>
-      <Container>
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom>
-              Shazlo
-            </Typography>
-            <Typography>
-              The future of fashion discovery for women.
-            </Typography>
-            <Box sx={{ mt: 2 }}>
-              <IconButton aria-label="instagram" color="inherit">
-                <Instagram />
-              </IconButton>
-              <IconButton aria-label="facebook" color="inherit">
-                <Facebook />
-              </IconButton>
-              <IconButton aria-label="twitter" color="inherit">
-                <Twitter />
-              </IconButton>
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: '#000',
+        color: '#fff',
+        pt: 10,
+        pb: 6,
+        mt: 10,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid
+    container
+    spacing={6}
+    justifyContent="space-between"
+    alignItems="flex-start"
+  >
+          {/* Logo & Social */}
+          <Grid item xs={12} md={4}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <Box
+                component="img"
+                src={mainlogo}
+                alt="main logo"
+                sx={{ width: 200 }}
+              />
+              <Typography variant="body1" sx={{ maxWidth: 280, color: '#aaa' }}>
+                The future of fashion discovery for women.
+              </Typography>
+              <Box>
+                <IconButton aria-label="instagram" sx={{ color: '#e9cd7d' }}>
+                  <Instagram />
+                </IconButton>
+                <IconButton aria-label="facebook" sx={{ color: '#e9cd7d' }}>
+                  <Facebook />
+                </IconButton>
+                <IconButton aria-label="twitter" sx={{ color: '#e9cd7d' }}>
+                  <Twitter />
+                </IconButton>
+              </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom>
+
+          {/* Quick Links */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
               Quick Links
             </Typography>
-            <Link href="#" color="inherit" display="block">Home</Link>
-            <Link href="#" color="inherit" display="block">Features</Link>
-            <Link href="#" color="inherit" display="block">Download</Link>
-            <Link href="#" color="inherit" display="block">Contact</Link>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              <Link href="#" underline="hover" sx={{ color: '#bbb' }}>
+                Home
+              </Link>
+              <Link href="#" underline="hover" sx={{ color: '#bbb' }}>
+                Features
+              </Link>
+              <Link href="#" underline="hover" sx={{ color: '#bbb' }}>
+                Download
+              </Link>
+              <Link href="#" underline="hover" sx={{ color: '#bbb' }}>
+                Contact
+              </Link>
+            </Box>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h6" gutterBottom>
+
+          {/* Legal + App Button */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
               Legal
             </Typography>
-            <Link href="#" color="inherit" display="block">Privacy Policy</Link>
-            <Link href="#" color="inherit" display="block">Terms of Service</Link>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              <Link href="#" underline="hover" sx={{ color: '#bbb' }}>
+                Privacy Policy
+              </Link>
+              <Link href="#" underline="hover" sx={{ color: '#bbb' }}>
+                Terms of Service
+              </Link>
+            </Box>
+
+            {/* Download App Button */}
+            <Box sx={{ mt: 4 }}>
+              <Button/>
+              {/* <Button
+                variant="contained"
+                sx={{
+                  background: '#e9cd7d',
+                  color: '#000',
+                  fontWeight: 600,
+                  borderRadius: 999,
+                  px: 4,
+                  py: 1.5,
+                  '&:hover': {
+                    background: '#f0d889',
+                  },
+                }}
+              >
+                Download the App
+              </Button> */}
+            </Box>
           </Grid>
         </Grid>
-        <Divider sx={{ my: 4, backgroundColor: 'rgba(255,255,255,0.2)' }} />
-        <Typography align="center">
-          © {new Date().getFullYear()} Shazlo. All rights reserved.
+
+        {/* Divider + Copyright */}
+        <Divider sx={{ my: 6, backgroundColor: 'rgba(255,255,255,0.1)' }} />
+        <Typography variant="body2" align="center" sx={{ color: '#888' }}>
+          © {new Date().getFullYear()} <b>Shazlo</b>. All rights reserved.
         </Typography>
       </Container>
-    </footer>
+    </Box>
   );
 }
 
