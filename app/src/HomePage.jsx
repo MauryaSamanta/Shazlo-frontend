@@ -8,50 +8,62 @@ import {
   Typography,
   Button,
   Box,
-  Link,
 } from "@mui/material";
 import { ShoppingBag, Favorite, Download } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   hero: {
-    background: "linear-gradient(45deg, #FFF9C4 30%, #FFEBEE 90%)",
-    padding: "80px 0",
+    background: "linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%)",
+    padding: "100px 20px",
     textAlign: "center",
   },
   featureCard: {
     height: "100%",
+    borderRadius: "16px",
+    backdropFilter: "blur(10px)",
+    boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+    transition: "transform 0.3s ease",
     display: "flex",
     flexDirection: "column",
-    transition: "transform 0.3s",
     "&:hover": {
-      transform: "scale(1.03)",
+      transform: "scale(1.04)",
     },
   },
   featureMedia: {
-    paddingTop: "56.25%",
-    backgroundColor: "#FFEBEE",
+    height: 240,
+    borderTopLeftRadius: "16px",
+    borderTopRightRadius: "16px",
+    objectFit: "cover",
   },
   downloadButton: {
-    background: "linear-gradient(45deg, #FFD700 30%, #FFC107 90%)",
-    color: "black",
+    background: "linear-gradient(90deg, #fc466b 0%, #3f5efb 100%)",
+    color: "#fff",
     fontWeight: "bold",
-    padding: "10px 24px",
+    borderRadius: "50px",
+    padding: "12px 32px",
+    fontSize: "16px",
+    textTransform: "none",
+    boxShadow: "0px 4px 20px rgba(63, 94, 251, 0.4)",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-2px)",
+      boxShadow: "0px 6px 25px rgba(63, 94, 251, 0.6)",
+    },
   },
   pinkText: {
-    color: "#F06292",
+    color: "#fc466b",
   },
   yellowBg: {
-    backgroundColor: "#FFF9C4",
+    background: "#fffaf0",
   },
 }));
 
 function HomePage() {
   const classes = useStyles();
 
-  // Add top padding to offset the fixed navbar (default MUI AppBar height is 64px, 56px on mobile)
   return (
     <div style={{ paddingTop: 64 }}>
       <Navbar />
@@ -63,12 +75,24 @@ function HomePage() {
             variant="h2"
             component="h1"
             gutterBottom
-            sx={{ fontWeight: "bold" }}
+            sx={{
+              fontWeight: 800,
+              fontSize: { xs: "2.2rem", md: "3.5rem" },
+              mb: 2,
+            }}
           >
-            Discover Fashion{" "}
-            <span className={classes.pinkText}>You'll Love</span>
+            Discover Fashion <span className={classes.pinkText}>You'll Love</span>
           </Typography>
-          <Typography variant="h5" gutterBottom sx={{ mb: 4 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#555",
+              maxWidth: "600px",
+              margin: "0 auto",
+              fontWeight: 400,
+              mb: 4,
+            }}
+          >
             Swipe. Shop. Style. The future of fashion discovery is here.
           </Typography>
           <Button
@@ -91,41 +115,35 @@ function HomePage() {
             gutterBottom
             sx={{ fontWeight: "bold", mb: 6 }}
           >
-            Shop Your <span className={classes.pinkText}>Favorite</span>{" "}
-            Categories
+            Shop Your <span className={classes.pinkText}>Favorite</span> Categories
           </Typography>
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item>
-              <Button
-                variant="outlined"
-                size="large"
-                startIcon={<ShoppingBag />}
-              >
-                Bags
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="outlined" size="large" startIcon={<Favorite />}>
-                Dresses
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="outlined"
-                size="large"
-                startIcon={<ShoppingBag />}
-              >
-                Shorts
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="outlined" size="large" startIcon={<Favorite />}>
-                Tops
-              </Button>
-            </Grid>
+          <Grid container spacing={3} justifyContent="center">
+            {["Bags", "Dresses", "Shorts", "Tops"].map((label, idx) => (
+              <Grid item key={label}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  startIcon={idx % 2 === 0 ? <ShoppingBag /> : <Favorite />}
+                  sx={{
+                    borderRadius: "40px",
+                    px: 4,
+                    fontWeight: "600",
+                    color: "#3f5efb",
+                    borderColor: "#3f5efb",
+                    "&:hover": {
+                      backgroundColor: "#3f5efb",
+                      color: "#fff",
+                    },
+                  }}
+                >
+                  {label}
+                </Button>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </Box>
+
       {/* Features Section */}
       <Box sx={{ py: 8, backgroundColor: "#FFFDE7" }}>
         <Container>
@@ -138,95 +156,65 @@ function HomePage() {
             Why <span className={classes.pinkText}>Shazlo</span> Stands Out
           </Typography>
           <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={6} md={4}>
-              <Card className={classes.featureCard}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=600"
-                  alt="Swipe Interaction"
-                />
-                <CardContent>
-                  <Typography
-                    variant="h6"
-                    gutterBottom
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    Swipe-Based Interaction
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    Discover fashion like never before—just swipe right to love
-                    it or left to skip.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4}>
-              <Card className={classes.featureCard}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&w=600"
-                  alt="AI Curation"
-                />
-                <CardContent>
-                  <Typography
-                    variant="h6"
-                    gutterBottom
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    Smart AI Curation
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    Our AI learns your preferences instantly and curates fashion
-                    just for you.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4}>
-              <Card className={classes.featureCard}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image="https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=600"
-                  alt="Wishlist"
-                />
-                <CardContent>
-                  <Typography
-                    variant="h6"
-                    gutterBottom
-                    sx={{ fontWeight: "bold" }}
-                  >
-                    Wishlist & Moodboards
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    Save your favorite styles and create your vibe with custom
-                    moodboards.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            {[
+              {
+                title: "Swipe-Based Interaction",
+                desc: "Discover fashion like never before — just swipe right to love it or left to skip.",
+                img: "https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=600",
+              },
+              {
+                title: "Smart AI Curation",
+                desc: "Our AI learns your preferences instantly and curates fashion just for you.",
+                img: "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&w=600",
+              },
+              {
+                title: "Wishlist & Moodboards",
+                desc: "Save your favorite styles and create your vibe with custom moodboards.",
+                img: "https://images.pexels.com/photos/532221/pexels-photo-532221.jpeg?auto=compress&w=600",
+              },
+            ].map((feature) => (
+              <Grid item xs={12} sm={6} md={4} key={feature.title}>
+                <Card className={classes.featureCard}>
+                  <CardMedia
+                    component="img"
+                    className={classes.featureMedia}
+                    image={feature.img}
+                    alt={feature.title}
+                  />
+                  <CardContent>
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                      sx={{ fontWeight: "bold", mb: 1 }}
+                    >
+                      {feature.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "#666" }}>
+                      {feature.desc}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </Box>
 
       {/* Download CTA */}
-      <Container sx={{ py: 8, textAlign: "center" }}>
-        <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold" }}>
-          Ready to <span className={classes.pinkText}>Transform</span> Your
-          Shopping Experience?
+      <Container sx={{ py: 10, textAlign: "center" }}>
+        <Typography
+          variant="h3"
+          sx={{ fontWeight: 700, mb: 2, fontSize: { xs: "2rem", md: "3rem" } }}
+        >
+          Ready to <span className={classes.pinkText}>Transform</span> Your Shopping?
         </Typography>
-        <Typography variant="h5" gutterBottom sx={{ mb: 4 }}>
-          Download Shazlo now and discover fashion tailored just for you.
+        <Typography variant="h6" sx={{ mb: 4, color: "#555" }}>
+          Download Shazlo and unlock your personal style universe.
         </Typography>
         <Button
-          variant="contained"
+          className={classes.downloadButton}
           size="large"
           startIcon={<Download />}
-          className={classes.downloadButton}
         >
           Download the App
         </Button>
