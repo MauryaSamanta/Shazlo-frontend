@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import mainlogo from './assets/1.png';
 import ss1 from "./assets/ss1.jpg";
@@ -11,6 +11,17 @@ import Footer from './Footer';
 const Landing = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+ const [scrollY, setScrollY] = useState(0);
+const scrollOffset = Math.min(scrollY / 2, 200); // cap at 200px
+
+useEffect(() => {
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <Box sx={{flex:1, width: '100%', overflowX: 'hidden' }}>
@@ -62,20 +73,21 @@ const Landing = () => {
   />
         
         {/* Cards */}
-        <Box
-          sx={{
-            display: 'flex',
-            gap: isMobile ? 2 : 6,
-            position: 'absolute',
-            bottom: isMobile ? -100 : -20,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 2,
-            flexDirection: isMobile ? 'column' : 'row',
-            alignItems: 'center',
-            
-          }}
-        >
+       <Box
+  sx={{
+    display: 'flex',
+    gap: isMobile ? 2 : 6,
+    position: 'absolute',
+    bottom: isMobile ? -100 : -60 + scrollOffset,  // Moves up on scroll
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 2,
+    flexDirection: isMobile ? 'column' : 'row',
+    alignItems: 'center',
+    transition: 'bottom 0.2s ease-out',  // Smooth animation
+  }}
+>
+
           {/* Left Card */}
           <Box
           component="img"
