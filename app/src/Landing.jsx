@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
-import mainlogo from './assets/1.png';
+import mainlogo from './assets/w.png';
 import mobilelogo from './assets/w.png';
 import ss1 from "./assets/ss1.jpg";
 import ss2 from "./assets/ss2.jpg";
@@ -9,10 +9,12 @@ import Button from './components/Button';
 import Style from './components/Swipe';
 import Closet from './components/Closet';
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 const Landing = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const [scrollY, setScrollY] = useState(0);
   const scrollOffset = Math.min(scrollY / 2, 200); // cap at 200px
 
@@ -26,17 +28,26 @@ const Landing = () => {
   }, []);
 
   return (
-    <Box sx={{ flex: 1, width: '100%', overflowX: 'hidden' }}>
-      {/* Top Yellow-Black Hero */}
+    <Box sx={{ 
+      flex: 1, 
+      width: '100%', 
+      overflowX: 'hidden',
+      backgroundColor: 'white'
+    }}>
+      <Navbar></Navbar>
+      {/* Top Hero Section */}
       <Box
         sx={{
           position: 'relative',
           width: '100%',
-          height: isMobile ? 600 : 500,
+          height: isMobile ? '90vh' : isTablet ? '80vh' : '100vh',
+          minHeight: isMobile ? 600 : 700,
           background: 'black',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'flex-end',
+          alignItems: 'center',
+          flexDirection: 'column',
+          overflow: 'hidden'
         }}
       >
         {/* Sling Handles (Shopping Bag Style) - Only show on desktop */}
@@ -44,10 +55,12 @@ const Landing = () => {
           <Box
             sx={{
               position: 'absolute',
-              top: 20,
+              top: '10%',
               left: '50%',
-              width: 1000,
-              height: 500,
+              width: '80%',
+              maxWidth: 1000,
+              height: '50%',
+              maxHeight: 500,
               border: '20px solid #e9cd7d',
               borderTopLeftRadius: '100% 80%',
               borderTopRightRadius: '100% 80%',
@@ -59,21 +72,34 @@ const Landing = () => {
           />
         )}
 
-        {/* Curve at bottom */}
+        {/* Logo */}
         <Box
+          component="img"
+          src={isMobile ? mobilelogo : mainlogo}
+          alt="main logo"
           sx={{
-            position: 'absolute',
-            bottom: -50,
-            left: 0,
-            width: '100%',
-            height: 150,
-            backgroundColor: 'white',
-            borderTopLeftRadius: '100% 100px',
-            borderTopRightRadius: '100% 100px',
-            zIndex: 0,
+            width: isMobile ? '80%' : isTablet ? '70%' : '60%',
+            maxWidth: isMobile ? 500 : 750,
+            zIndex: 1,
+            mb: isMobile ? 4 : 6,
+            position: 'relative'
           }}
         />
         
+        {/* Button */}
+        <Box sx={{ 
+  position: 'relative',
+  zIndex: 10, // Increased z-index to ensure it's above other elements
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  mt: isMobile ? 4 : 6, // Added margin top for mobile
+  mb: isMobile ? 2 : 0, // Added margin bottom for mobile
+  padding: isMobile ? '0 20px' : 0 // Added horizontal padding for mobile
+}}>
+  <Button />
+</Box>
+
         {/* Cards - Only show on desktop */}
         {!isMobile && (
           <Box
@@ -81,13 +107,13 @@ const Landing = () => {
               display: 'flex',
               gap: 6,
               position: 'absolute',
-              bottom: -60 + scrollOffset,  // Moves up on scroll
+              bottom: `calc(-10% + ${scrollOffset}px)`,
               left: '50%',
               transform: 'translateX(-50%)',
               zIndex: 2,
               flexDirection: 'row',
-              alignItems: 'center',
-              transition: 'bottom 0.2s ease-out',  // Smooth animation
+              alignItems: 'flex-end',
+              transition: 'bottom 0.3s ease-out',
             }}
           >
             {/* Left Card */}
@@ -95,8 +121,8 @@ const Landing = () => {
               component="img"
               src={ss2}
               sx={{
-                width: 260,
-                height: 470,
+                width: isTablet ? 220 : 260,
+                height: isTablet ? 400 : 470,
                 backgroundColor: 'white',
                 borderRadius: '14px',
                 boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
@@ -110,21 +136,13 @@ const Landing = () => {
               component="img"
               src={ss1}
               sx={{
-                width: 260,
-                height: 470,
+                width: isTablet ? 240 : 280,
+                height: isTablet ? 430 : 500,
                 backgroundColor: 'white',
                 borderRadius: '14px',
                 boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
                 transform: 'rotate(0deg)',
                 zIndex: 2,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'white',
-                flexDirection: 'column',
-                fontWeight: 600,
-                textAlign: 'center',
-                p: 2,
               }}
             />
             
@@ -133,8 +151,8 @@ const Landing = () => {
               component="img"
               src={ss3}
               sx={{
-                width: 260,
-                height: 470,
+                width: isTablet ? 220 : 260,
+                height: isTablet ? 400 : 470,
                 backgroundColor: 'white',
                 borderRadius: '14px',
                 boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
@@ -144,36 +162,32 @@ const Landing = () => {
             />
           </Box>
         )}
-        
-        {/* Logo - Different for mobile and desktop */}
+
+        {/* Curve at bottom */}
         <Box
-          component="img"
-          src={isMobile ? mobilelogo : mainlogo}
-          alt="main logo"
           sx={{
             position: 'absolute',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: isMobile ? 500 : 750,
-            top: isMobile ? 70 : 420,
-            zIndex: 0,
+            bottom: -1,
+            left: 0,
+            width: '100%',
+            height: '15%',
+            minHeight: 150,
+            backgroundColor: 'white',
+            borderTopLeftRadius: '100% 100px',
+            borderTopRightRadius: '100% 100px',
+            zIndex: 3,
           }}
         />
-        
-        <Box
-          sx={{ mt: 4, maxWidth: 300 }}
-        >
-          <Button />
-        </Box>
       </Box>
 
       {/* Content Sections */}
       <Box
         sx={{
           position: 'relative',
-          top: isMobile ? 0 : 650,
-          zIndex: 0,
+          zIndex: 4,
           backgroundColor: 'white',
+          pt: isMobile ? 0 : 0,
+          pb: isMobile ? 0: 0
         }}
       >
         <Style />
@@ -182,43 +196,27 @@ const Landing = () => {
       <Box
         sx={{
           position: 'relative',
-          top: isMobile ? 0 : 1500,
-          zIndex: 0,
+          zIndex: 4,
           backgroundColor: 'white',
+          pt: isMobile ? 0 : 0,
+          pb: isMobile ? 0: 0
         }}
       >
         <Closet />
       </Box>
 
-      {/* Transition curve */}
-      <Box
-        sx={{
-          width: '100%',
-          height: 150,
-          backgroundColor: 'white',
-          position: 'relative',
-          top: isMobile ? 0 : 2300,
-          zIndex: 1,
-          borderBottomLeftRadius: '100% 100px',
-          borderBottomRightRadius: '100% 100px',
-        }}
-      />
-
       {/* Footer */}
       <Box
         sx={{
           position: 'relative',
-          top: isMobile ? 0 : 2400,
-          zIndex: 0,
+          zIndex: 4,
           backgroundColor: 'black',
-          width: '100%'
+          width: '100%',
+          pt: 8
         }}
       >
         <Footer />
       </Box>
-      
-      {/* Bottom White Space */}
-      <Box />
     </Box>
   );
 };
