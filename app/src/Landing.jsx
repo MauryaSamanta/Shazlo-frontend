@@ -83,7 +83,7 @@ const Landing = () => {
             width: isMobile ? "80%" : isTablet ? "70%" : "60%",
             maxWidth: isMobile ? 500 : 750,
             zIndex: 1,
-             mt: isMobile ? -8 : -7.5,
+            mt: isMobile ? -8 : -7.5,
             mb: isMobile ? 4 : 0,
             position: "relative",
           }}
@@ -95,7 +95,7 @@ const Landing = () => {
             zIndex: 100, // Increased z-index to ensure it's above other elements
             width: "100%",
             display: "flex",
-           
+
             justifyContent: "center",
             mt: isMobile ? -8 : 6, // Added margin top for mobile
             mb: isMobile ? 2 : 0, // Added margin bottom for mobile
@@ -103,71 +103,74 @@ const Landing = () => {
         >
           <Button />
         </Box>
-        <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
-
+        <br /> <br /> <br /> <br /> <br /> <br /> <br />
         {/* Cards - Only show on desktop */}
-        {!isMobile && (
+        <Box
+          sx={{
+            display: "flex",
+            gap: 6,
+            position: "absolute",
+            bottom: `calc(-10% + ${scrollOffset}px)`,
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 2,
+            flexDirection: "row",
+            alignItems: "flex-end",
+            transition: "bottom 0.3s ease-out",
+          }}
+        >
+          {/* Left Card */}
           <Box
+            component="img"
+            src={ss2}
             sx={{
-              display: "flex",
-              gap: 6,
-              position: "absolute",
-              bottom: `calc(-10% + ${scrollOffset}px)`,
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 2,
-              flexDirection: "row",
-              alignItems: "flex-end",
-              transition: "bottom 0.3s ease-out",
+               width: isMobile ? 100 : isTablet ? 240 : 250,
+              height: isMobile ? 200 : isTablet ? 450 : 500,
+              top: isMobile ? -170 : 0,
+              position: "relative",
+              backgroundColor: "white",
+              borderRadius: "14px",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
+              transform: "rotate(-12deg)",
+              zIndex: 1,
             }}
-          >
-            {/* Left Card */}
-            <Box
-              component="img"
-              src={ss2}
-              sx={{
-                width: isTablet ? 220 : 260,
-                height: isTablet ? 400 : 470,
-                backgroundColor: "white",
-                borderRadius: "14px",
-                boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
-                transform: "rotate(-12deg)",
-                zIndex: 1,
-              }}
-            />
+          />
 
-            {/* Center Card */}
-            <Box
-              component="img"
-              src={ss1}
-              sx={{
-                width: isTablet ? 240 : 280,
-                height: isTablet ? 430 : 500,
-                backgroundColor: "white",
-                borderRadius: "14px",
-                boxShadow: "0 15px 50px rgba(0,0,0,0.5)",
-                transform: "rotate(0deg)",
-                zIndex: 2,
-              }}
-            />
+          {/* Center Card */}
+          <Box
+            component="img"
+            src={ss1}
+            sx={{
+              width: isMobile ? 100 : isTablet ? 240 : 250,
+              height: isMobile ? 200 : isTablet ? 450 : 500,
+              top: isMobile ? -170 : 0,
+              position: "relative",
 
-            {/* Right Card */}
-            <Box
-              component="img"
-              src={ss3}
-              sx={{
-                width: isTablet ? 220 : 260,
-                height: isTablet ? 400 : 470,
-                backgroundColor: "white",
-                borderRadius: "14px",
-                boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
-                transform: "rotate(12deg)",
-                zIndex: 1,
-              }}
-            />
-          </Box>
-        )}
+              backgroundColor: "white",
+              borderRadius: "14px",
+              boxShadow: "0 15px 50px rgba(0,0,0,0.5)",
+              transform: "rotate(0deg)",
+              zIndex: 2,
+            }}
+          />
 
+          {/* Right Card */}
+          <Box
+            component="img"
+            src={ss3}
+            sx={{
+               width: isMobile ? 100 : isTablet ? 240 : 250,
+              height: isMobile ? 200 : isTablet ? 450 : 500,
+              top: isMobile ? -170 : 0,
+              position: "relative",
+              backgroundColor: "white",
+              borderRadius: "14px",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
+              transform: "rotate(12deg)",
+              zIndex: 1,
+            }}
+          />
+        </Box>
         {/* Curve at bottom */}
         <Box
           sx={{
