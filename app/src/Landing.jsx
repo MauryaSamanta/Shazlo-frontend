@@ -78,7 +78,7 @@ useEffect(() => {
     display: 'flex',
     gap: isMobile ? 2 : 6,
     position: 'absolute',
-    bottom: isMobile ? -100 : -60 + scrollOffset,  // Moves up on scroll
+    bottom: isMobile ? -100 : -120 + scrollOffset,  // Moves up on scroll
     left: '50%',
     transform: 'translateX(-50%)',
     zIndex: 2,
@@ -94,7 +94,7 @@ useEffect(() => {
           src={ss2}
             sx={{
               width: isMobile ? 220 : 260,
-              height: isMobile ? 420 : 470,
+              height: isMobile ? 420 : 510,
               backgroundColor: 'white',
               borderRadius: '14px',
               boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
@@ -111,7 +111,7 @@ useEffect(() => {
           src={ss1}
             sx={{
               width: isMobile ? 220 : 260,
-              height: isMobile ? 420 : 470,
+              height: isMobile ? 420 : 510,
               backgroundColor: 'white',
               borderRadius: '14px',
               boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
@@ -136,7 +136,7 @@ useEffect(() => {
           src={ss3}
             sx={{
               width: isMobile ? 220 : 260,
-              height: isMobile ? 420 : 470,
+              height: isMobile ? 420 : 510,
               backgroundColor: 'white',
               borderRadius: '14px',
               boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
