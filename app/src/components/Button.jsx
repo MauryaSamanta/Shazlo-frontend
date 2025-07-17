@@ -47,7 +47,9 @@ const StyledWrapper = styled.div`
     border: none;
     outline: none;
     padding: 12px 18px;
-    width:400px;
+    width: 100%;
+max-width: 400px;
+margin: 0 auto;
   }
   .button::before,
   .button::after {
