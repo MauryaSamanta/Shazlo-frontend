@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
     fontSize: "15px",
     textTransform: "none",
     marginLeft: "24px",
-    color: "#222",
+    color: "white",
     "&:hover": {
       color: "#fc466b",
       background: "transparent",
@@ -134,7 +134,7 @@ function Navbar() {
                 <IconButton
                   size="large"
                   edge="end"
-                  color="black"
+                  color="white"
                   aria-label="menu"
                   onClick={handleMenu}
                 >

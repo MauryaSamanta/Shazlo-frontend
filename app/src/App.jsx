@@ -4,7 +4,7 @@ import { CssBaseline } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import theme from "./theme";
-import HomePage from "./HomePage";
+
 import ContactPage from "./Contact";
 import Landing from "./Landing";
 
