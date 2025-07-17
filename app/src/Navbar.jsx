@@ -16,7 +16,7 @@ import {
 import { Download, Menu as MenuIcon } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
 import { Link as RouterLink } from "react-router-dom";
-import logo from "./assets/4.png";
+import logo from "./assets/5.png";
 
 const useStyles = makeStyles(() => ({
   appBar: {
@@ -36,7 +36,8 @@ const useStyles = makeStyles(() => ({
     fontSize: "15px",
     textTransform: "none",
     marginLeft: "24px",
-    color: "white",
+    color: "#333",
+    WebkitTextFillColor:"white" ,
     "&:hover": {
       color: "#fc466b",
       background: "transparent",
@@ -90,7 +91,7 @@ function Navbar() {
   return (
     <HideOnScroll>
       <AppBar position="fixed" className={classes.appBar} elevation={0}>
-        <Container sx={{ width: "100%", maxWidth: "1200px", px: 2 }}>
+        <Container sx={{ width: "100%", maxWidth: "1200px",backgroundcolor:"white", px: 2 }}>
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
             {/* Logo */}
             <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
@@ -131,13 +132,15 @@ function Navbar() {
             ) : (
               /* Mobile Menu */
               <Box className={classes.mobileMenu}>
-                <IconButton
-                  size="large"
-                  edge="end"
-                  color="white"
-                  aria-label="menu"
-                  onClick={handleMenu}
-                >
+                                 <IconButton
+                    size="large"
+                    edge="end"
+                    color="inherit" // Inherits white color from appBar
+                    aria-label="menu"
+                    onClick={handleMenu}
+                    sx={{ color: "white" }} // Explicit white color
+                  >
+
                   <MenuIcon />
                 </IconButton>
                 <Menu

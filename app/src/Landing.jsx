@@ -61,7 +61,7 @@ const Landing = () => {
               left: "50%",
               width: "80%",
               maxWidth: 1000,
-              height: "50%",
+              height: "100%",
               maxHeight: 500,
               border: "20px solid #e9cd7d",
               borderTopLeftRadius: "100% 80%",
@@ -73,7 +73,7 @@ const Landing = () => {
             }}
           />
         )}
-
+        <br></br>
         {/* Logo */}
         <Box
           component="img"
@@ -83,28 +83,27 @@ const Landing = () => {
             width: isMobile ? "80%" : isTablet ? "70%" : "60%",
             maxWidth: isMobile ? 500 : 750,
             zIndex: 1,
-            mb: isMobile ? 4 : 6,
+             mt: isMobile ? -8 : -7.5,
+            mb: isMobile ? 4 : 0,
             position: "relative",
           }}
         />
-
         {/* Button */}
         <Box
           sx={{
             position: "relative",
-            zIndex: 10, // Increased z-index to ensure it's above other elements
+            zIndex: 100, // Increased z-index to ensure it's above other elements
             width: "100%",
             display: "flex",
            
             justifyContent: "center",
-            mt: isMobile ? 4 : 6, // Added margin top for mobile
+            mt: isMobile ? -8 : 6, // Added margin top for mobile
             mb: isMobile ? 2 : 0, // Added margin bottom for mobile
-            padding: isMobile ? "0 0px" : 0, // Added horizontal padding for mobile
           }}
         >
           <Button />
         </Box>
-        
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
 
         {/* Cards - Only show on desktop */}
         {!isMobile && (

@@ -50,7 +50,7 @@ function ContactPage() {
   const classes = useStyles();
 
   return (
-    <div style={{ paddingTop: 90}}>
+    <div style={{ paddingTop: 90,backgroundColor: "white"   }}>
       <Navbar />
 
       {/* Contact Hero */}
