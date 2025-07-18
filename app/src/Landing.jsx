@@ -60,9 +60,9 @@ const Landing = () => {
               top: "10%",
               left: "50%",
               width: "80%",
-              maxWidth: 1000,
+              maxWidth: 1200,
               height: "100%",
-              maxHeight: 500,
+              maxHeight: 600,
               border: "20px solid #e9cd7d",
               borderTopLeftRadius: "100% 80%",
               borderTopRightRadius: "100% 80%",
@@ -108,7 +108,7 @@ const Landing = () => {
         <Box
           sx={{
             display: "flex",
-            gap: 6,
+            gap: 0,
             position: "absolute",
             bottom: `calc(-10% + ${scrollOffset}px)`,
             left: "50%",
@@ -124,8 +124,8 @@ const Landing = () => {
             component="img"
             src={ss2}
             sx={{
-               width: isMobile ? 100 : isTablet ? 240 : 250,
-              height: isMobile ? 200 : isTablet ? 450 : 500,
+               width: isMobile ? 160 : isTablet ? 240 : 250,
+              height: isMobile ? 320 : isTablet ? 450 : 500,
               top: isMobile ? -170 : 0,
               position: "relative",
               backgroundColor: "white",
@@ -141,8 +141,8 @@ const Landing = () => {
             component="img"
             src={ss1}
             sx={{
-              width: isMobile ? 100 : isTablet ? 240 : 250,
-              height: isMobile ? 200 : isTablet ? 450 : 500,
+              width: isMobile ? 160 : isTablet ? 240 : 250,
+              height: isMobile ? 320 : isTablet ? 450 : 500,
               top: isMobile ? -170 : 0,
               position: "relative",
 
@@ -159,8 +159,8 @@ const Landing = () => {
             component="img"
             src={ss3}
             sx={{
-               width: isMobile ? 100 : isTablet ? 240 : 250,
-              height: isMobile ? 200 : isTablet ? 450 : 500,
+               width: isMobile ? 160 : isTablet ? 240 : 250,
+              height: isMobile ? 320 : isTablet ? 450 : 500,
               top: isMobile ? -170 : 0,
               position: "relative",
               backgroundColor: "white",
@@ -212,7 +212,20 @@ const Landing = () => {
       >
         <Closet />
       </Box>
-
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: -1,
+            left: 0,
+            width: "100%",
+            height: "15%",
+            minHeight: 150,
+            backgroundColor: "white",
+            borderTopLeftRadius: "100% 100px",
+            borderTopRightRadius: "100% 100px",
+            zIndex: 3,
+          }}
+        />
       {/* Footer */}
       <Box
         sx={{
