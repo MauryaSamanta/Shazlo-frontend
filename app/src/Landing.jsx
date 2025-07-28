@@ -171,7 +171,7 @@ const Landing = () => {
             }}
           />
         </Box>
-        {/* Curve at bottom */}
+        {/* Curve at top */}
         <Box
           sx={{
             position: "absolute",
@@ -181,9 +181,10 @@ const Landing = () => {
             height: "15%",
             minHeight: 150,
             backgroundColor: "white",
-            borderTopLeftRadius: "100% 100px",
-            borderTopRightRadius: "100% 100px",
+            borderTopLeftRadius: "100% 50px",
+            borderTopRightRadius: "100% 50px",
             zIndex: 3,
+            boxShadow: "0px -10px 30px rgba(0, 0, 0, 0.2)"
           }}
         />
       </Box>

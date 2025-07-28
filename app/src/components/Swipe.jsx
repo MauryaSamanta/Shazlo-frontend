@@ -97,7 +97,7 @@ const Style = () => {
               icon: '→'
             },
             { 
-              text: 'Swipe left to skip items', 
+              text: 'Swipe left on clothes you donot like', 
               color: '#ff4d4d',
               icon: '←'
             },
@@ -105,7 +105,13 @@ const Style = () => {
               text: 'Swipe up to add to cart', 
               color: '#4CAF50',
               icon: '↑'
-            }
+            },
+            { 
+              text: 'Swipe down to add to closet', 
+              color: '#FF9800',
+              icon: '↓'
+            },
+
           ].map((item, index) => (
             <Box
               key={index}
