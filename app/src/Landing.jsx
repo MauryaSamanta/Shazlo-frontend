@@ -6,6 +6,7 @@ import ss1 from "./assets/ss1.jpg";
 import ss2 from "./assets/ss2.jpg";
 import ss3 from "./assets/ss3.jpg";
 import Button from "./components/Button";
+import PreRegisterButton from "./components/PreRegisterButton";
 import Style from "./components/Swipe";
 import Closet from "./components/Closet";
 import Footer from "./Footer";
@@ -87,7 +88,7 @@ const Landing = () => {
             mb: isMobile ? 4 : 0,
             position: "relative",
           }}
-        />
+        />{" "}
         {/* Button */}
         <Box
           sx={{
@@ -95,13 +96,16 @@ const Landing = () => {
             zIndex: 100, // Increased z-index to ensure it's above other elements
             width: "100%",
             display: "flex",
-
+            flexDirection: isMobile ? "column" : "row",
+            gap: isMobile ? 2 : 3,
             justifyContent: "center",
+            alignItems: "center",
             mt: isMobile ? -8 : 6, // Added margin top for mobile
             mb: isMobile ? 2 : 0, // Added margin bottom for mobile
           }}
         >
           <Button />
+          <PreRegisterButton />
         </Box>
         <br /> <br /> <br /> <br /> <br /> <br /> <br />
         {/* Cards - Only show on desktop */}
@@ -124,7 +128,7 @@ const Landing = () => {
             component="img"
             src={ss2}
             sx={{
-               width: isMobile ? 160 : isTablet ? 240 : 250,
+              width: isMobile ? 160 : isTablet ? 240 : 250,
               height: isMobile ? 320 : isTablet ? 450 : 500,
               top: isMobile ? -170 : 0,
               position: "relative",
@@ -159,7 +163,7 @@ const Landing = () => {
             component="img"
             src={ss3}
             sx={{
-               width: isMobile ? 160 : isTablet ? 240 : 250,
+              width: isMobile ? 160 : isTablet ? 240 : 250,
               height: isMobile ? 320 : isTablet ? 450 : 500,
               top: isMobile ? -170 : 0,
               position: "relative",
@@ -184,7 +188,7 @@ const Landing = () => {
             borderTopLeftRadius: "100% 50px",
             borderTopRightRadius: "100% 50px",
             zIndex: 3,
-            boxShadow: "0px -10px 30px rgba(0, 0, 0, 0.2)"
+            boxShadow: "0px -10px 30px rgba(0, 0, 0, 0.2)",
           }}
         />
       </Box>
@@ -213,20 +217,20 @@ const Landing = () => {
       >
         <Closet />
       </Box>
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: -1,
-            left: 0,
-            width: "100%",
-            height: "15%",
-            minHeight: 150,
-            backgroundColor: "white",
-            borderTopLeftRadius: "100% 100px",
-            borderTopRightRadius: "100% 100px",
-            zIndex: 3,
-          }}
-        />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: -1,
+          left: 0,
+          width: "100%",
+          height: "15%",
+          minHeight: 150,
+          backgroundColor: "white",
+          borderTopLeftRadius: "100% 100px",
+          borderTopRightRadius: "100% 100px",
+          zIndex: 3,
+        }}
+      />
       {/* Footer */}
       <Box
         sx={{
