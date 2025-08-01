@@ -104,7 +104,7 @@ const Landing = () => {
             mb: isMobile ? 2 : 0, // Added margin bottom for mobile
           }}
         >
-          <Button />
+          {/* <Button /> */}
           <PreRegisterButton />
         </Box>
         <br /> <br /> <br /> <br /> <br /> <br /> <br />

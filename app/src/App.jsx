@@ -7,6 +7,7 @@ import theme from "./theme";
 
 import ContactPage from "./Contact";
 import Landing from "./Landing";
+import Home from "./Home";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <CssBaseline />
       <Router>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Home />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </Router>

@@ -79,7 +79,7 @@ function Footer() {
               ))}
             </Box>
             <Box sx={{ mt: 4, maxWidth: 300 }}>
-              <Button />
+              {/* <Button /> */}
             </Box>
           </Grid>
         </Grid>
