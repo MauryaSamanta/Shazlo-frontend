@@ -5,7 +5,7 @@ const Button = () => {
   return (
     <StyledWrapper>
       <button type="button" className="button">
-        <a href="/contact" download style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
+        <a href="/app-release.apk" download style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
         <span className="fold" />
         <div className="points_wrapper">
           <i className="point" />
