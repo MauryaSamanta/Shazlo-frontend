@@ -89,17 +89,17 @@ const Closet = () => {
               icon: '👗'
             },
             {
-              text: 'Save Your Favourite Fits',
+              text: 'Save your favorite fits',
               gradient: 'linear-gradient(to right, #00c6ff, #0072ff)',
               icon: '❤️'
             },
             {
-              text: 'Collaborate With Friends',
+              text: 'Collaborate with friends',
               gradient: 'linear-gradient(to right, #ff9a9e, #fad0c4)',
               icon: '👯'
             },
             {
-              text: 'Share Looks Anytime, Anywhere',
+              text: 'Share looks anytime, anywhere',
               gradient: 'linear-gradient(to right, #f7971e, #ffd200)',
               icon: '🌎'
             }
