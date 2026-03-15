@@ -162,7 +162,7 @@ export default function NovanestDashboard() {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
           <Box>
             <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 0.5 }}>
-              {`Welcome back, ${brand.poc_name}`}
+              {`Welcome back hi , ${brand.poc_name}`}
             </Typography>
             {/* <Typography variant="body2" color="text.secondary">
               Here's Your Control Sales Overview
